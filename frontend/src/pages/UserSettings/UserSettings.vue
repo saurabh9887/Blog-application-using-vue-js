@@ -3,6 +3,7 @@ import { onMounted, reactive } from "vue";
 import "./UserSettings.scss";
 import axios from "axios";
 import { useUserStore } from "../../Stores/userStore";
+import { useRoute } from "vue-router";
 
 const userStore = useUserStore();
 const userInfo = userStore.userInfo;
@@ -23,10 +24,13 @@ const form = reactive({
   password: "",
 });
 
+const route = useRoute();
+const userId = route.params.id;
+
 const handleUpdate = async () => {
   try {
     const res = await axios.put(
-      `http://localhost:3000/api/user/edit/${userInfo.id}`
+      `http://localhost:3000/api/user/edit/${userId}`
     );
     console.log(res.data);
   } catch (error) {
@@ -107,11 +111,7 @@ onMounted(async () => {
             <router-link to="/myblogs" class="link">
               <button class="myBlogs">My Blogs</button>
             </router-link>
-            <router-link to="/" class="link">
-              <button class="update" @click="handleUpdate">
-                Update Profile
-              </button>
-            </router-link>
+            <button class="update" @click="handleUpdate">Update Profile</button>
           </div>
         </form>
       </div>

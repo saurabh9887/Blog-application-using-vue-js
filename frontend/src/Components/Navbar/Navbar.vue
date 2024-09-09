@@ -32,20 +32,16 @@ console.log(userInfo);
           </router-link>
         </div>
         <div class="user">
-          <router-link to="/edit/:id" class="link">
-            <img
-              @click="router.push(`/edit/${userInfo.id}`)"
-              :src="`http://localhost:3000/uploads/${userInfo.img
-                .split('\\')
-                .pop()}`"
-              alt="username"
-            />
-          </router-link>
-          <router-link to="/edit/:id" class="link">
-            <span @click="router.push(`/edit/${userInfo.id}`)">{{
-              userInfo.username
-            }}</span>
-          </router-link>
+          <img
+            @click="router.push(`/edit/${userInfo.id}`)"
+            :src="`http://localhost:3000/uploads/${userInfo.img
+              .split('\\')
+              .pop()}`"
+            alt="username"
+          />
+          <span @click="router.push(`/edit/${userInfo.id}`)">{{
+            userInfo.username
+          }}</span>
         </div>
       </div>
     </div>
