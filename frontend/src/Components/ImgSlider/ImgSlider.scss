@@ -1,0 +1,39 @@
+.slider {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  //   height: auto;
+
+  .prev-button,
+  .next-button {
+    position: absolute;
+    border-radius: 50%;
+    background-color: #333;
+    z-index: 1;
+    width: 30px;
+    height: 30px;
+    color: white;
+    border: 1px solid rgb(134, 131, 131);
+    cursor: pointer;
+  }
+
+  .prev-button {
+    top: 50%;
+    left: 0;
+  }
+
+  .next-button {
+    top: 50%;
+    right: 0;
+  }
+
+  img {
+    width: 300px;
+    height: 170px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin: 5px;
+  }
+}
